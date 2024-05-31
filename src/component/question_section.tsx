@@ -43,6 +43,10 @@ export default function QuestionSection() {
     setQuestion(e.target.value);
   };
 
+  const clearCompleteAnswer = () => {
+    setCompleteAnswer("");
+  };
+
   const toggleAnswerVisible = () => {
     setAnswerVisible(it => !it);
   };
@@ -78,6 +82,9 @@ export default function QuestionSection() {
         :
         <button className="border border-black p-2 m-1 rounded active:bg-gray-300" onClick={stopAnswer}>대답 종료</button>
       }
+      <button className="border border-black p-2 m-1 rounded active:bg-gray-300" onClick={clearCompleteAnswer}>
+        대답 초기화
+      </button>
       <button className="border border-black p-2 m-1 rounded active:bg-gray-300" onClick={toggleAnswerVisible}>
         {isAnswerVisible ? "내용 가리기" : "내용 보이기"}
       </button>

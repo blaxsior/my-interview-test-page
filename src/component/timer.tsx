@@ -5,7 +5,7 @@ type TimerProps = {
   second: number;
 };
 
-export default function Timer({ second }: TimerProps) {
+const Timer = function ({ second }: TimerProps) {
   const [time, setTime] = useState(second);
   const [baseTime, setBaseTime] = useState(second);
 
@@ -63,9 +63,10 @@ export default function Timer({ second }: TimerProps) {
       <button onClick={toggleEditable} className={"border-2 px-1 rounded " + (is_time_editable ? "bg-green-400" : "bg-gray-300")}>edit</button>
     </div>
     <div className="flex flex-1 mx-2 my-1 gap-4 justify-center">
-      <button className="border border-gray-900 rounded-lg px-2 py-1 bg-gray-100" onClick={start}>start</button>
-      <button className="border border-gray-900 rounded-lg px-2 py-1 bg-gray-100" onClick={stop}>stop</button>
-      <button className="border border-gray-900 rounded-lg px-2 py-1 bg-gray-100" onClick={reset}>reset</button>
+      <button className="border border-gray-900 rounded-lg px-2 py-1 bg-gray-100 active:bg-slate-500" onClick={start}>start</button>
+      <button className="border border-gray-900 rounded-lg px-2 py-1 bg-gray-100 active:bg-slate-500" onClick={stop}>stop</button>
+      <button className="border border-gray-900 rounded-lg px-2 py-1 bg-gray-100 active:bg-slate-500" onClick={reset}>reset</button>
     </div>
   </div>
-}
+};
+export default Timer;
