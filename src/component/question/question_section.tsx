@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react"
-import useSpeechSynthesis from "../hooks/useSpeechSynthesis";
-import useSpeechRecognition from "../hooks/useSpeechRecognition";
+import useSpeechSynthesis from "../../hooks/useSpeechSynthesis";
+import useSpeechRecognition from "../../hooks/useSpeechRecognition";
 
 
 export default function QuestionSection() {
@@ -64,15 +64,18 @@ export default function QuestionSection() {
     <div>{isListening ? "듣는 중..." : "안듣는 중..."}</div>
     <div className="space-y-3">
       <div>대답</div>
-      <div className={`border border-black p-1 w-full ${!isAnswerVisible ? "bg-black" : ""}`} >
+      <div className={`relative border border-black p-1 w-full`} >
         {
           isRunning && <>
             <span>{completeSpeech}</span>
-            {tempSpeech.length > 0 && <span className={`text-red-700 ${!isAnswerVisible ? "text-black" : ""}`}>{tempSpeech}</span>}
+            {tempSpeech.length > 0 && <span className={`text-red-700`}>{tempSpeech}</span>}
           </>
         }
         {
           !isRunning && <span>{completeAnswer}</span>
+        }
+        {
+          !isAnswerVisible && <div className="absolute w-full h-full top-0 left-0 bg-black"></div>
         }
       </div>
     </div>
